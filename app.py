@@ -16,7 +16,11 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
+# Configure genai with the API key from Streamlit secrets
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
+
 
 output_dir = 'saliency_maps'
 os.makedirs(output_dir, exist_ok=True)
